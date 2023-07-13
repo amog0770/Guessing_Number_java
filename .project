@@ -1,17 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
-	<name>Guess_number</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
-</projectDescription>
+package guess;
+import java.util.Scanner;
+
+public class Guessing_number {
+	public static void Guess_number()
+	{ int i;
+		Scanner sc= new Scanner(System.in);
+		System.out.println("You hava 5 trial to guess the number");                          //five trial given to user
+		int number = 1+ (int) (100 * Math.random());                          //random value generated in integer form
+		for(i=5;i>0;i--)
+		{
+			System.out.println("Guess the number :");                                    //input from user
+			int guess=sc.nextInt();
+			if(guess==number)
+			{
+				System.out.println("Good you have Guess the right Number");                   //condition givens
+				break;
+			}
+			else if(guess>number && i>0)
+			{
+				System.out.println("You Have guess the Number Greater than Random Number by:" + (guess-number));
+			}
+			else if(guess<number && i>0)
+			{
+				System.out.println("You Have guess the Number Smaller than Random Number by:" + (number-guess));
+			}
+		}
+		if(i==0)
+		{
+			System.out.println("You Have Exhausted your Trial Limit");                 //if trial get exhausted
+		}
+		System.out.println("The Number is  :"+number);
+	}
+
+	public static void main(String[] args) {
+Guess_number();                                                       //function called
+	}
+
+}
+
